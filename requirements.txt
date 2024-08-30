@@ -1,0 +1,7 @@
+git+https://github.com/just-ai/mlp-python-sdk.git@release
+pandas
+torch
+transformers
+datasets
+scikit-learn
+

@@ -70,20 +70,20 @@ class PERextractor:
     def makePredictions(self, inputJSON, outputJSON='predictions.json'):
         f = open(inputJSON, encoding='UTF-8')
         data = json.load(f)
-        dictionary = {'enteties_list': []}
+        dictionary = {'entities_list': []}
         for text in data['texts']:
             d = self.predictDict(text)
-            dictionary['enteties_list'].append(d)
+            dictionary['entities_list'].append(d)
 
         with open(outputJSON, "w", encoding='UTF-8') as outfile:
             json.dump(dictionary, outfile, ensure_ascii=False, indent=4)
         return dictionary
     
     def predictionsFromDict(self, data):
-        dictionary = {'enteties_list': []}
+        dictionary = {'entities_list': []}
         for text in data['texts']:
-            d = self.predictDict(text)
-            dictionary['enteties_list'].append(d)
+            d = self.singlePredictDict(text)
+            dictionary['entities_list'].append(d)
         return dictionary
         
 

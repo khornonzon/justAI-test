@@ -15,7 +15,7 @@ class PredictRequest(BaseModel):
 
 
 class PredictResponse(BaseModel):
-    entities_list: List
+    entities_list: List[Any]
 
     def __init__(self, entities_list):
         super().__init__(entities_list=entities_list)
@@ -26,7 +26,7 @@ class SimpleActionExample(Task):
         super().__init__(config, service_sdk)
         self.model =  PERextractor('/app/model', "DeepPavlov/rubert-base-cased", id2label)
     def predict(self, data: PredictRequest, config: BaseModel) -> PredictResponse:
-        input_data = data
+        input_data = {'texts':data.texts}
         output_data = self.model.predictionsFromDict(input_data)
     
         return PredictResponse(entities_list=output_data['entities_list'])

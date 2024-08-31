@@ -30,10 +30,10 @@ def map_fn(x):
     previous_word_idx = None
     label = x['tags']
     label_ids = []
-    for word_idx in word_ids:  # Set the special tokens to -100.
+    for word_idx in word_ids:
             if word_idx is None:
                 label_ids.append(-100)
-            elif word_idx != previous_word_idx:  # Only label the first token of a given word.
+            elif word_idx != previous_word_idx:
                 label_ids.append(label[word_idx])
             else:
                 label_ids.append(-100)
@@ -86,7 +86,6 @@ training_args = TrainingArguments(
     eval_strategy="epoch",
     save_strategy="epoch",
     load_best_model_at_end=True,
-    # push_to_hub=True,
 )
 
 trainer = Trainer(

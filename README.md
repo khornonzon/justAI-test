@@ -1,5 +1,9 @@
 # Инструкция
 
+Для того, чтобы протестировать модель, нужно скачать модель и файл test.csv и запустить скрипт tests.py.
+
+Модель и файлы test.csv и train.csv можно скачать с гугл-диска: https://drive.google.com/drive/folders/1WBVFxn5KfcarZ_hk706CDlp38nyjGIdK?usp=sharing
+
 ## 1. Создание датасета
 
 1. Скачайте и установите архив nerus_lenta.conllu.gz и библиотеку nerus (инструкция в репозитории https://github.com/natasha/nerus)
